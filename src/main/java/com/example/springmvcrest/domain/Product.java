@@ -19,7 +19,7 @@ public class Product {
 
     private Long price;
 
-    private Long quantity;
+    private int quantity;
 
     private String category;
 
