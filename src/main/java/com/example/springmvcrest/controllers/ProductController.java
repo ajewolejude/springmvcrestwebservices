@@ -28,7 +28,7 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Product saveProduct(Product product){
+    public Product saveProduct(@RequestBody Product product){
         return productService.saveProduct(product);
     }
 
@@ -37,8 +37,8 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteProduct(Long id){
+    @DeleteMapping("delete/{id}")
+    public String deleteProduct(@PathVariable Long id){
         productService.deleteProduct(id);
         return "deleted successfully";
     }

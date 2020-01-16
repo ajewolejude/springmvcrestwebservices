@@ -41,4 +41,10 @@ public class CustomerController {
         return "succcessfully deleted";
     }
 
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    Customer updateCustomer(@PathVariable Long id, @RequestBody Customer customer){
+        return customerService.updateCustomer(id, customer);
+    }
+
 }
