@@ -14,6 +14,8 @@ public interface ProductService {
 
     Product saveProduct(Product product);
 
+    Product updateCustomer(Long id, Product product);
+
 
 
 

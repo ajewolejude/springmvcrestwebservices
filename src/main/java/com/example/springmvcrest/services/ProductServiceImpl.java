@@ -35,4 +35,19 @@ public class ProductServiceImpl implements ProductService {
 
         return productRepository.save(product);
     }
+
+    @Override
+    public Product updateCustomer(Long id, Product newProduct) {
+        return productRepository.findById(id).map(product1 -> {
+            product1.setName(newProduct.getName());
+            product1.setCategory(newProduct.getCategory());
+            product1.setPrice(newProduct.getPrice());
+            product1.setQuantity(newProduct.getQuantity());
+
+            return productRepository.save(product1);
+        }).orElseGet(() -> {
+            newProduct.setId(id);
+            return productRepository.save(newProduct);
+        });
+    }
 }

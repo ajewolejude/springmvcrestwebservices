@@ -1,6 +1,5 @@
 package com.example.springmvcrest.controllers;
 
-
 import com.example.springmvcrest.domain.Product;
 import com.example.springmvcrest.services.ProductService;
 import org.springframework.http.HttpStatus;
@@ -44,4 +43,9 @@ public class ProductController {
     }
 
 
+    @PutMapping
+    @ResponseStatus(HttpStatus.OK)
+    public Product updateProduct(@PathVariable Long id, @RequestBody Product product){
+        return productService.updateCustomer(id,product);
+    }
 }
